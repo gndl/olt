@@ -1,6 +1,6 @@
 opam-version: "1.2"
-maintainer: "Gaëtan Dubreil <gaetan.dubreil@free.fr>"
-authors: ["Gaëtan Dubreil <gaetan.dubreil@free.fr>"]
+maintainer: "gndl <gn.dl@free.fr>"
+authors: ["gndl <gn.dl@free.fr>"]
 homepage: "https://github.com/gndl/olt"
 doc: "https://gndl.github.io/olt/doc"
 license: "ISC"
