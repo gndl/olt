@@ -2,12 +2,12 @@ type tLineJoin = Miter | Retim
 type tLineCap = Butt | Ttub
 
 type tFill =
-  | PlainRgb of int
-  | PlainRgba of Gradient.tRgba
-  | PlainRgbaString of string
-  | Gradient of Gradient.c
-  | Image of Image.c
-  | Color of int
+| PlainRgb of int
+| PlainRgba of Gradient.tRgba
+| PlainRgbaString of string
+| Gradient of Gradient.c
+| Image of Image.c
+| Color of int
 
 (** "start", "end", "left", "right", "center" (default: "start") *)
 type tTextAlign = Start | End | Left | Right | Center
@@ -27,9 +27,9 @@ type tProperties = {
   mutable shadowOffsetY : int;
   mutable strokeStyle : string;
   mutable globalAlpha : float;
-	mutable font : string; (** (default 10px sans-serif) *)
-	mutable textAlign : tTextAlign;
-	mutable textBaseline : tTextBaseline;
+  mutable font : string; (** (default 10px sans-serif) *)
+  mutable textAlign : tTextAlign;
+  mutable textBaseline : tTextBaseline;
 }
 
 

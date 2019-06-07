@@ -4,7 +4,7 @@ open Gradient;;
 open Usual;;
 
 
-  (** opaque object *)
+(** opaque object *)
 (*type pattern*)
 
 type textMetrics = {tWidth:int};;
@@ -12,90 +12,90 @@ type textMetrics = {tWidth:int};;
 type imageData = {iWidth:int; iHeight:int; iData:string};;
 
 class virtual c (area:Area.c) =
-object(self)
+  object(self)
 
-	val mutable mArea = area
-	
-	method getArea = mArea
-	method setArea area = mArea <- area
-  method getX() = mArea#x
-  method getY() = mArea#y
-  method getWidth() = mArea#w
-  method getHeight() = mArea#h
+    val mutable mArea = area
 
-  method x = mArea#x
-  method y = mArea#y
-  method w = mArea#w
-  method h = mArea#h
+    method getArea = mArea
+    method setArea area = mArea <- area
+    method getX() = mArea#x
+    method getY() = mArea#y
+    method getWidth() = mArea#w
+    method getHeight() = mArea#h
 
-	method virtual setBackground : Style.tFill -> unit
-  method virtual setFillStyle : Style.tFill -> unit
-  method virtual setLineCap : Style.tLineCap -> unit
-  method virtual setLineJoin : Style.tLineJoin -> unit
-  method virtual setLineWidth : int -> unit
-  method virtual setMiterLimit : float -> unit
-  method virtual setShadowBlur : int -> unit
-  method virtual setShadowColor : int -> unit
-  method virtual setShadowOffsetX : int -> unit
-  method virtual setShadowOffsetY : int -> unit
-  method virtual setStrokeStyle : string -> unit
-  method virtual setGlobalAlpha : float -> unit
-  method virtual setFont : string -> unit
-  method virtual setTextAlign : Style.tTextAlign -> unit
-  method virtual setTextBaseline : Style.tTextBaseline -> unit
+    method x = mArea#x
+    method y = mArea#y
+    method w = mArea#w
+    method h = mArea#h
 
-	method virtual activeStyle : unit -> unit
+    method virtual setBackground : Style.tFill -> unit
+    method virtual setFillStyle : Style.tFill -> unit
+    method virtual setLineCap : Style.tLineCap -> unit
+    method virtual setLineJoin : Style.tLineJoin -> unit
+    method virtual setLineWidth : int -> unit
+    method virtual setMiterLimit : float -> unit
+    method virtual setShadowBlur : int -> unit
+    method virtual setShadowColor : int -> unit
+    method virtual setShadowOffsetX : int -> unit
+    method virtual setShadowOffsetY : int -> unit
+    method virtual setStrokeStyle : string -> unit
+    method virtual setGlobalAlpha : float -> unit
+    method virtual setFont : string -> unit
+    method virtual setTextAlign : Style.tTextAlign -> unit
+    method virtual setTextBaseline : Style.tTextBaseline -> unit
 
-  method virtual setProperties : Style.tProperties -> unit
-  method virtual getProperties : unit -> Style.tProperties
+    method virtual activeStyle : unit -> unit
 
-  method virtual getImage : unit -> Image.c
-  method virtual getSubImage : int -> int -> int -> int -> Image.c
-  method virtual setImage : Image.c -> unit
-  method virtual setSubImage : Image.c -> int -> int -> int -> int -> unit
+    method virtual setProperties : Style.tProperties -> unit
+    method virtual getProperties : unit -> Style.tProperties
+
+    method virtual getImage : unit -> Image.c
+    method virtual getSubImage : int -> int -> int -> int -> Image.c
+    method virtual setImage : Image.c -> unit
+    method virtual setSubImage : Image.c -> int -> int -> int -> int -> unit
     (*  method virtual drawImage : Image.c -> ?dx:int -> ?dy:int -> ?dw:int -> ?dh:int -> ?sx:int -> ?sy:int -> ?sw:int -> ?sh:int -> unit *)
-  method virtual drawImage : Image.c -> int -> int -> unit
-  method virtual clear : unit -> unit
-	
-	
-  (** rects *)
-  
-	method virtual clearRect : int -> int -> int -> int -> unit
-  method virtual fillRect : int -> int -> int -> int -> unit
-  method virtual strokeRect : int -> int -> int -> int -> unit
-  (*method virtual beginPath : unit -> unit
-  method virtual draw : unit -> unit
-  method virtual closePath : unit -> unit
-  method virtual setPathFillStyle : Style.tFill -> unit
-	*)
-(*  method virtual arc : int -> int -> int -> int -> int -> bool -> unit
-  method virtual strokeRect : int -> int -> int -> int -> unit*)
-  method virtual moveTo : int -> int -> unit
-  method virtual lineTo : int -> int -> unit
-  method virtual lines : (int * int)array -> unit
-(*  method virtual rectangle : int -> int -> int -> int -> unit*)
-(*  method virtual polygonTo : int -> int -> unit*)
-  method virtual polygon : (int * int)array -> unit
-  method virtual bezierCurveTo : int -> int -> int -> int -> int -> int -> unit
-  method virtual arc : int -> int -> int -> int -> int -> int -> unit
-(*  method virtual createLinearGradient : (*int -> int -> int -> int ->*) int -> cGradient
-  method virtual createRadialGradient : (*int -> int -> int -> int -> int ->*) int -> cGradient*)
-  method virtual drawMotif : Motif.c -> int -> int -> unit
-  method virtual drawMotifScaled : Motif.c -> int -> int -> int -> unit
-  method virtual drawMotifShaped : Motif.c -> int -> int -> int -> int -> int -> int -> unit
-  method virtual drawMotifShaped2 : Motif.c -> int -> int -> int -> int -> int -> int -> int -> int -> unit
+    method virtual drawImage : Image.c -> int -> int -> unit
+    method virtual clear : unit -> unit
 
 
-  (** text *)
-  method virtual fillText : string -> int -> int -> ?maxWidth:int -> unit -> unit
-  method virtual strokeText : string -> int -> int -> ?maxWidth:int -> unit -> unit
-  method virtual measureText : string -> textMetrics
+    (** rects *)
+
+    method virtual clearRect : int -> int -> int -> int -> unit
+    method virtual fillRect : int -> int -> int -> int -> unit
+    method virtual strokeRect : int -> int -> int -> int -> unit
+    (*method virtual beginPath : unit -> unit
+      method virtual draw : unit -> unit
+      method virtual closePath : unit -> unit
+      method virtual setPathFillStyle : Style.tFill -> unit
+      *)
+    (*  method virtual arc : int -> int -> int -> int -> int -> bool -> unit
+        method virtual strokeRect : int -> int -> int -> int -> unit*)
+    method virtual moveTo : int -> int -> unit
+    method virtual lineTo : int -> int -> unit
+    method virtual lines : (int * int)array -> unit
+    (*  method virtual rectangle : int -> int -> int -> int -> unit*)
+    (*  method virtual polygonTo : int -> int -> unit*)
+    method virtual polygon : (int * int)array -> unit
+    method virtual bezierCurveTo : int -> int -> int -> int -> int -> int -> unit
+    method virtual arc : int -> int -> int -> int -> int -> int -> unit
+    (*  method virtual createLinearGradient : (*int -> int -> int -> int ->*) int -> cGradient
+        method virtual createRadialGradient : (*int -> int -> int -> int -> int ->*) int -> cGradient*)
+    method virtual drawMotif : Motif.c -> int -> int -> unit
+    method virtual drawMotifScaled : Motif.c -> int -> int -> int -> unit
+    method virtual drawMotifShaped : Motif.c -> int -> int -> int -> int -> int -> int -> unit
+    method virtual drawMotifShaped2 : Motif.c -> int -> int -> int -> int -> int -> int -> int -> int -> unit
 
 
-  (** state *)
+    (** text *)
+    method virtual fillText : string -> int -> int -> ?maxWidth:int -> unit -> unit
+    method virtual strokeText : string -> int -> int -> ?maxWidth:int -> unit -> unit
+    method virtual measureText : string -> textMetrics
 
-  method virtual save : unit -> unit	(** push state on state stack *)
-  method virtual restore : unit -> unit (** pop state stack and restore state *)
+
+    (** state *)
+
+    method virtual save : unit -> unit	(** push state on state stack *)
+    method virtual restore : unit -> unit (** pop state stack and restore state *)
 
 (*
   (** transformations (default transform is the identity matrix) *)
@@ -150,4 +150,4 @@ object(self)
   ImageData getImageData : float sx -> float sy -> float sw -> float sh -> unit
   method virtual putImageData : ImageData imagedata -> float -> float -> optional float dirtyX -> float dirtyY -> float dirtyWidth -> float dirtyHeight -> unit
 *)
-end;;
+  end;;
